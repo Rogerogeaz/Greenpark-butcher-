@@ -321,9 +321,10 @@
     const customerName = document.getElementById('customerName').value.trim();
 const customerPhone = document.getElementById('customerPhone').value.trim();
 const pickupTime = document.getElementById('pickupTime').value;
+const meatType = document.getElementById('meatType').value;
 const orderType = document.getElementById('orderType').value;
 
-if (!customerName || !customerPhone || !pickupTime) {
+if (!customerName || !customerPhone || !pickupTime || !meatType) {
   alert('Please fill all fields');
   return;
 }
@@ -350,6 +351,7 @@ if (!customerName || !customerPhone || !pickupTime) {
   customerName,
   customerPhone,
   pickupTime,
+  meatType,
   orderType,
   amount,
   status: 'Pending',
@@ -434,7 +436,8 @@ if (!customerName || !customerPhone || !pickupTime) {
         orderDiv.innerHTML = `
           <h3>${data.customerName}</h3>
           <p><strong>Order:</strong> ${data.orderType}</p>
-          <p><strong>Phone:</strong> ${data.customerPhone}</p>
+<p><strong>Phone:</strong> ${data.customerPhone}</p>
+<p><strong>Preparation:</strong> ${data.meatType}</p>
 <p><strong>Pickup Time:</strong> ${data.pickupTime}</p>
           <p><strong>Amount:</strong> KES ${data.amount}</p>
           <p><strong>Booking Time:</strong> ${data.createdAt?.toDate ? data.createdAt.toDate().toLocaleString() : 'Loading...'}</p>
